@@ -1,0 +1,47 @@
+<h1>Listing causes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Monthlysponsorship</th>
+      <th>Taxid</th>
+      <th>Missiondescription</th>
+      <th>Categoryid</th>
+      <th>Executiveid</th>
+      <th>Contactphone</th>
+      <th>Contactemail</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @causes.each do |cause| %>
+      <tr>
+        <td><%= cause.name %></td>
+        <td><%= cause.city %></td>
+        <td><%= cause.state %></td>
+        <td><%= cause.zip %></td>
+        <td><%= cause.monthlySponsorship %></td>
+        <td><%= cause.taxID %></td>
+        <td><%= cause.missionDescription %></td>
+        <td><%= cause.categoryID %></td>
+        <td><%= cause.executiveID %></td>
+        <td><%= cause.contactPhone %></td>
+        <td><%= cause.contactEmail %></td>
+        <td><%= link_to 'Show', cause %></td>
+        <td><%= link_to 'Edit', edit_cause_path(cause) %></td>
+        <td><%= link_to 'Destroy', cause, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cause', new_cause_path %>

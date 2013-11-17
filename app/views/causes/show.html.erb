@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cause.name %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @cause.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @cause.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @cause.zip %>
+</p>
+
+<p>
+  <strong>Monthlysponsorship:</strong>
+  <%= @cause.monthlySponsorship %>
+</p>
+
+<p>
+  <strong>Taxid:</strong>
+  <%= @cause.taxID %>
+</p>
+
+<p>
+  <strong>Missiondescription:</strong>
+  <%= @cause.missionDescription %>
+</p>
+
+<p>
+  <strong>Categoryid:</strong>
+  <%= @cause.categoryID %>
+</p>
+
+<p>
+  <strong>Executiveid:</strong>
+  <%= @cause.executiveID %>
+</p>
+
+<p>
+  <strong>Contactphone:</strong>
+  <%= @cause.contactPhone %>
+</p>
+
+<p>
+  <strong>Contactemail:</strong>
+  <%= @cause.contactEmail %>
+</p>
+
+<%= link_to 'Edit', edit_cause_path(@cause) %> |
+<%= link_to 'Back', causes_path %>

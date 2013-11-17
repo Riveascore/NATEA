@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  city: MyString
+  state: MyString
+  zip: 1
+  monthlySponsorship: 9.99
+  taxID: 1
+  missionDescription: MyString
+  categoryID: 1
+  executiveID: 1
+  contactPhone: 1
+  contactEmail: MyString
+
+two:
+  name: MyString
+  city: MyString
+  state: MyString
+  zip: 1
+  monthlySponsorship: 9.99
+  taxID: 1
+  missionDescription: MyString
+  categoryID: 1
+  executiveID: 1
+  contactPhone: 1
+  contactEmail: MyString

@@ -1,0 +1,61 @@
+<%= form_for(@cause) do |f| %>
+  <% if @cause.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cause.errors.count, "error") %> prohibited this cause from being saved:</h2>
+
+      <ul>
+      <% @cause.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.number_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :monthlySponsorship %><br>
+    <%= f.text_field :monthlySponsorship %>
+  </div>
+  <div class="field">
+    <%= f.label :taxID %><br>
+    <%= f.number_field :taxID %>
+  </div>
+  <div class="field">
+    <%= f.label :missionDescription %><br>
+    <%= f.text_field :missionDescription %>
+  </div>
+  <div class="field">
+    <%= f.label :categoryID %><br>
+    <%= f.number_field :categoryID %>
+  </div>
+  <div class="field">
+    <%= f.label :executiveID %><br>
+    <%= f.number_field :executiveID %>
+  </div>
+  <div class="field">
+    <%= f.label :contactPhone %><br>
+    <%= f.number_field :contactPhone %>
+  </div>
+  <div class="field">
+    <%= f.label :contactEmail %><br>
+    <%= f.text_field :contactEmail %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

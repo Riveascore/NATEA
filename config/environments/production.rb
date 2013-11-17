@@ -20,6 +20,8 @@ NATEA::Application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
+  #In production env, Rails will not be responsible for serving static assets.
+  #Changed to true to solve production problems
   config.serve_static_assets = false
 
   # Compress JavaScripts and CSS.
