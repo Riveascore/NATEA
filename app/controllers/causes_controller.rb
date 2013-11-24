@@ -25,8 +25,6 @@ class CausesController < ApplicationController
   # POST /causes.json
   def create
     @cause = Cause.new(cause_params)
-    # @cause.cause_image = params[:cause_image]
-    # @cause.cause_image.save!
 
     respond_to do |format|
       if @cause.save

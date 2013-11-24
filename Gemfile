@@ -9,7 +9,9 @@ gem 'carousel'
 gem 'sass-rails', '~> 4.0.0'
 
 # For storing images, so they don't have to be stored on DB
+# Also including 'RMagick' for things such as scaling pictures
 gem 'carrierwave'
+gem 'rmagick'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
