@@ -11,23 +11,91 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131117030045) do
+ActiveRecord::Schema.define(version: 20131124044051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "billing_addresses", force: true do |t|
+    t.integer  "donator_id"
+    t.boolean  "main_contact"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cause_categories", force: true do |t|
+    t.string   "category_name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "causes", force: true do |t|
     t.string   "name"
     t.string   "city"
     t.string   "state"
     t.integer  "zip"
-    t.decimal  "monthlySponsorship"
-    t.integer  "taxID"
-    t.string   "missionDescription"
-    t.integer  "categoryID"
-    t.integer  "executiveID"
-    t.integer  "contactPhone"
-    t.string   "contactEmail"
+    t.decimal  "monthly_sponsorship"
+    t.integer  "employer_identification_number"
+    t.text     "mission_description"
+    t.integer  "cause_category_id"
+    t.integer  "executive_id"
+    t.integer  "phone_number_id"
+    t.string   "contact_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "donations", force: true do |t|
+    t.integer  "donator_id"
+    t.decimal  "donation_amount"
+    t.datetime "donation_date"
+    t.boolean  "recurring"
+    t.integer  "recurring_period_months"
+    t.integer  "payment_method_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "donators", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "executives", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "phone_number_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payment_methods", force: true do |t|
+    t.integer  "donator_id"
+    t.string   "type"
+    t.integer  "routing_number"
+    t.date     "expiration_date"
+    t.integer  "billing_address_id"
+    t.integer  "phone_number_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "phone_numbers", force: true do |t|
+    t.integer  "donator_id"
+    t.boolean  "main_contact"
+    t.integer  "country_code"
+    t.integer  "area_code"
+    t.integer  "number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

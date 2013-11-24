@@ -18,7 +18,7 @@ class CausesControllerTest < ActionController::TestCase
 
   test "should create cause" do
     assert_difference('Cause.count') do
-      post :create, cause: { categoryID: @cause.categoryID, city: @cause.city, contactEmail: @cause.contactEmail, contactPhone: @cause.contactPhone, executiveID: @cause.executiveID, missionDescription: @cause.missionDescription, monthlySponsorship: @cause.monthlySponsorship, name: @cause.name, state: @cause.state, taxID: @cause.taxID, zip: @cause.zip }
+      post :create, cause: { cause_category_id: @cause.cause_category_id, city: @cause.city, contact_email: @cause.contact_email, employer_identification_number: @cause.employer_identification_number, executive_id: @cause.executive_id, mission_description: @cause.mission_description, monthly_sponsorship: @cause.monthly_sponsorship, name: @cause.name, phone_number_id: @cause.phone_number_id, state: @cause.state, zip: @cause.zip }
     end
 
     assert_redirected_to cause_path(assigns(:cause))
@@ -35,7 +35,7 @@ class CausesControllerTest < ActionController::TestCase
   end
 
   test "should update cause" do
-    patch :update, id: @cause, cause: { categoryID: @cause.categoryID, city: @cause.city, contactEmail: @cause.contactEmail, contactPhone: @cause.contactPhone, executiveID: @cause.executiveID, missionDescription: @cause.missionDescription, monthlySponsorship: @cause.monthlySponsorship, name: @cause.name, state: @cause.state, taxID: @cause.taxID, zip: @cause.zip }
+    patch :update, id: @cause, cause: { cause_category_id: @cause.cause_category_id, city: @cause.city, contact_email: @cause.contact_email, employer_identification_number: @cause.employer_identification_number, executive_id: @cause.executive_id, mission_description: @cause.mission_description, monthly_sponsorship: @cause.monthly_sponsorship, name: @cause.name, phone_number_id: @cause.phone_number_id, state: @cause.state, zip: @cause.zip }
     assert_redirected_to cause_path(assigns(:cause))
   end
 

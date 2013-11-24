@@ -1,6 +1,20 @@
 NATEA::Application.routes.draw do
   resources :causes
 
+  resources :cause_categories
+
+  resources :executives
+
+  resources :donations
+
+  resources :payment_methods
+
+  resources :billing_addresses
+
+  resources :phone_numbers
+
+  resources :donators
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

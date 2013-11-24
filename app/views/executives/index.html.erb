@@ -1,0 +1,31 @@
+<h1>Listing executives</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Phone number</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @executives.each do |executive| %>
+      <tr>
+        <td><%= executive.first_name %></td>
+        <td><%= executive.last_name %></td>
+        <td><%= executive.phone_number_id %></td>
+        <td><%= link_to 'Show', executive %></td>
+        <td><%= link_to 'Edit', edit_executive_path(executive) %></td>
+        <td><%= link_to 'Destroy', executive, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Executive', new_executive_path %>

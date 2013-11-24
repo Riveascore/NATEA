@@ -7,13 +7,13 @@
       <th>City</th>
       <th>State</th>
       <th>Zip</th>
-      <th>Monthlysponsorship</th>
-      <th>Taxid</th>
-      <th>Missiondescription</th>
-      <th>Categoryid</th>
-      <th>Executiveid</th>
-      <th>Contactphone</th>
-      <th>Contactemail</th>
+      <th>Monthly sponsorship</th>
+      <th>Employer identification number</th>
+      <th>Mission description</th>
+      <th>Cause category</th>
+      <th>Executive</th>
+      <th>Phone number</th>
+      <th>Contact email</th>
       <th></th>
       <th></th>
       <th></th>
@@ -27,13 +27,13 @@
         <td><%= cause.city %></td>
         <td><%= cause.state %></td>
         <td><%= cause.zip %></td>
-        <td><%= cause.monthlySponsorship %></td>
-        <td><%= cause.taxID %></td>
-        <td><%= cause.missionDescription %></td>
-        <td><%= cause.categoryID %></td>
-        <td><%= cause.executiveID %></td>
-        <td><%= cause.contactPhone %></td>
-        <td><%= cause.contactEmail %></td>
+        <td><%= cause.monthly_sponsorship %></td>
+        <td><%= cause.employer_identification_number %></td>
+        <td><%= cause.mission_description %></td>
+        <td><%= cause.cause_category_id %></td>
+        <td><%= cause.executive_id %></td>
+        <td><%= cause.phone_number_id %></td>
+        <td><%= cause.contact_email %></td>
         <td><%= link_to 'Show', cause %></td>
         <td><%= link_to 'Edit', edit_cause_path(cause) %></td>
         <td><%= link_to 'Destroy', cause, method: :delete, data: { confirm: 'Are you sure?' } %></td>

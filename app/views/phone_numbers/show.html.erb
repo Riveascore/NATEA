@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Donator:</strong>
+  <%= @phone_number.donator_id %>
+</p>
+
+<p>
+  <strong>Main contact:</strong>
+  <%= @phone_number.main_contact %>
+</p>
+
+<p>
+  <strong>Country code:</strong>
+  <%= @phone_number.country_code %>
+</p>
+
+<p>
+  <strong>Area code:</strong>
+  <%= @phone_number.area_code %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @phone_number.number %>
+</p>
+
+<%= link_to 'Edit', edit_phone_number_path(@phone_number) %> |
+<%= link_to 'Back', phone_numbers_path %>

@@ -1,0 +1,35 @@
+<h1>Listing phone_numbers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Donator</th>
+      <th>Main contact</th>
+      <th>Country code</th>
+      <th>Area code</th>
+      <th>Number</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @phone_numbers.each do |phone_number| %>
+      <tr>
+        <td><%= phone_number.donator_id %></td>
+        <td><%= phone_number.main_contact %></td>
+        <td><%= phone_number.country_code %></td>
+        <td><%= phone_number.area_code %></td>
+        <td><%= phone_number.number %></td>
+        <td><%= link_to 'Show', phone_number %></td>
+        <td><%= link_to 'Edit', edit_phone_number_path(phone_number) %></td>
+        <td><%= link_to 'Destroy', phone_number, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Phone number', new_phone_number_path %>

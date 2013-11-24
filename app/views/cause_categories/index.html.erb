@@ -1,0 +1,29 @@
+<h1>Listing cause_categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category name</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cause_categories.each do |cause_category| %>
+      <tr>
+        <td><%= cause_category.category_name %></td>
+        <td><%= cause_category.description %></td>
+        <td><%= link_to 'Show', cause_category %></td>
+        <td><%= link_to 'Edit', edit_cause_category_path(cause_category) %></td>
+        <td><%= link_to 'Destroy', cause_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cause category', new_cause_category_path %>

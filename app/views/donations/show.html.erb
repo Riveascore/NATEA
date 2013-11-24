@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Donator:</strong>
+  <%= @donation.donator_id %>
+</p>
+
+<p>
+  <strong>Donation amount:</strong>
+  <%= @donation.donation_amount %>
+</p>
+
+<p>
+  <strong>Donation date:</strong>
+  <%= @donation.donation_date %>
+</p>
+
+<p>
+  <strong>Recurring:</strong>
+  <%= @donation.recurring %>
+</p>
+
+<p>
+  <strong>Recurring period months:</strong>
+  <%= @donation.recurring_period_months %>
+</p>
+
+<p>
+  <strong>Payment method:</strong>
+  <%= @donation.payment_method_id %>
+</p>
+
+<%= link_to 'Edit', edit_donation_path(@donation) %> |
+<%= link_to 'Back', donations_path %>

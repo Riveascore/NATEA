@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Donator:</strong>
+  <%= @payment_method.donator_id %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @payment_method.type %>
+</p>
+
+<p>
+  <strong>Routing number:</strong>
+  <%= @payment_method.routing_number %>
+</p>
+
+<p>
+  <strong>Expiration date:</strong>
+  <%= @payment_method.expiration_date %>
+</p>
+
+<p>
+  <strong>Billing address:</strong>
+  <%= @payment_method.billing_address_id %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @payment_method.phone_number_id %>
+</p>
+
+<%= link_to 'Edit', edit_payment_method_path(@payment_method) %> |
+<%= link_to 'Back', payment_methods_path %>
