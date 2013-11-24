@@ -1,4 +1,4 @@
-<%= form_for(@cause) do |f| %>
+<%= form_for(@cause, :html => {:multipart => true}) do |f| %>
   <% if @cause.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@cause.errors.count, "error") %> prohibited this cause from being saved:</h2>
@@ -10,7 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="field">
+    <%= f.label :cause_image %><br>
+    <%= f.file_field :cause_image %>
+  </div>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>

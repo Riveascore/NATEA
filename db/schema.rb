@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131124044051) do
+ActiveRecord::Schema.define(version: 20131124204057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,17 +50,18 @@ ActiveRecord::Schema.define(version: 20131124044051) do
     t.string   "contact_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cause_image"
   end
 
   create_table "donations", force: true do |t|
     t.integer  "donator_id"
     t.decimal  "donation_amount"
     t.datetime "donation_date"
-    t.boolean  "recurring"
-    t.integer  "recurring_period_months"
     t.integer  "payment_method_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cause_id"
+    t.string   "donation_recurrence"
   end
 
   create_table "donators", force: true do |t|

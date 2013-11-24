@@ -3,8 +3,13 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
+gem 'carousel'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
+
+# For storing images, so they don't have to be stored on DB
+gem 'carrierwave'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

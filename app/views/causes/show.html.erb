@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Image:</strong>
+  <%= image_tag @cause.cause_image_url.to_s %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @cause.name %>
 </p>
