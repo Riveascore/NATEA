@@ -1,4 +1,5 @@
 NATEA::Application.routes.draw do
+  get "cover_page/home"
   resources :causes
 
   resources :cause_categories
