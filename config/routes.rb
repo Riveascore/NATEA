@@ -1,4 +1,5 @@
 NATEA::Application.routes.draw do
+  get "cover_pages/home"
   get "cover_page/home"
   resources :causes
 
