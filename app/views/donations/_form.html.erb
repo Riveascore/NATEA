@@ -11,31 +11,42 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :donator_id %><br>
-    <%= f.number_field :donator_id %>
-  </div>
+  <% if !@cause.blank? %>
+    <!-- thumbnail and header and make cause_id hidden value -->
+    <%= image_tag @cause.cause_image.url(:thumb) %>
+    <div class="field">
+      <h2><%= @cause.name %></h2>
+    </div>
+  <% else %>
+    <% f.text_field :cause_id, :value => @cause_id %>
+    <div class="field">
+      <%= f.label :cause %><br>
+      <%= f.text_field :cause_id, :value => @cause_id %>
+    </div>
+  <% end %>
+
+
+
   <div class="field">
     <%= f.label :donation_amount %><br>
     <%= f.text_field :donation_amount %>
   </div>
   <div class="field">
-    <%= f.label :donation_date %><br>
-    <%= f.datetime_select :donation_date %>
-  </div>
-  <div class="field">
-    <%= f.label :recurring %><br>
-    <%= f.check_box :recurring %>
-  </div>
-  <div class="field">
-    <%= f.label :recurring_period_months %><br>
-    <%= f.number_field :recurring_period_months %>
-  </div>
-  <div class="field">
     <%= f.label :payment_method_id %><br>
     <%= f.number_field :payment_method_id %>
   </div>
+
+  <div class="field">
+    <%= f.label :donation_recurrence %><br>
+    <%= f.select :donation_recurrence, options_for_select(@recurrenceOptions) %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<!-- 
+:donation_date => Time.now
+
+ -->

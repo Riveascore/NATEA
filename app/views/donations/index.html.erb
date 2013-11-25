@@ -6,9 +6,7 @@
       <th>Donator</th>
       <th>Donation amount</th>
       <th>Donation date</th>
-      <th>Recurring</th>
-      <th>Recurring period months</th>
-      <th>Payment method</th>
+      <th>Recurrence</th>
       <th></th>
       <th></th>
       <th></th>
@@ -21,9 +19,7 @@
         <td><%= donation.donator_id %></td>
         <td><%= donation.donation_amount %></td>
         <td><%= donation.donation_date %></td>
-        <td><%= donation.recurring %></td>
-        <td><%= donation.recurring_period_months %></td>
-        <td><%= donation.payment_method_id %></td>
+        <td><%= donation.donation_recurrence %></td>
         <td><%= link_to 'Show', donation %></td>
         <td><%= link_to 'Edit', edit_donation_path(donation) %></td>
         <td><%= link_to 'Destroy', donation, method: :delete, data: { confirm: 'Are you sure?' } %></td>

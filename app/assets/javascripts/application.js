@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
-//= require jquery.lightbox-0.5
-//= require carousel

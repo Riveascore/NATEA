@@ -69,6 +69,6 @@ class CausesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cause_params
-      params.require(:cause).permit(:name, :city, :state, :zip, :monthly_sponsorship, :employer_identification_number, :mission_description, :cause_category_id, :executive_id, :phone_number_id, :contact_email, :cause_image)
+      params.require(:cause).permit(:name, :city, :state, :zip, :monthly_sponsorship, :employer_identification_number, :mission_description, :cause_category_id, :executive_id, :phone_number_id, :contact_email, :cause_image, :remote_cause_image_url)
     end
 end

@@ -1,42 +1,45 @@
-<%= javascript_include_tag "my_javascipt_file" %>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#cause-carousel').carousel({
+        interval: 5000
+    });
 
-<% @all_causes.each do |cause| %>
-	<table>
-		<tr>
-			<th>Name</th>
-		</tr>
-		<tr> 
-			<td><%= cause.name %></td>
-			<td><%= image_tag cause.cause_image.url(:thumb) %></td>
-		</tr>
-	</table>
+    // $('#cause-carousel').carousel('cycle');
+});
+</script> 
 
-<% end %>
 
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="..." alt="...">
-      <div class="carousel-caption">
-        ...
-      </div>
-    </div>
-    ...
-  </div>
+<div id="cause-carousel" class="carousel slide" data-ride="carousel">
+	<!-- 
+	Before inner, add ordered list, to create those little radioish buttons for selecting a 
+	particular slide
+	 -->
+	<ol class="carousel-indicators">
+		<% @all_causes.each_with_index do |cause, index| %>
+			<% if index == 1 %>
+	    		<li data-target="#cause-carousel" data-slide-to="<%= index %>" class="active"></li>
+    		<% else %>
+    			<li data-target="#cause-carousel" data-slide-to="<%= index %>"></li>
+			<% end %>
+	    <% end %>
+  	</ol>	 
+	<div class="carousel-inner">
+	<% @all_causes.each_with_index do |cause, index| %>
+		<% if index == 1 %>
+		<div class="item active">
+		<% else %>
+		<div class="item">
+		<% end %>
+			<%= link_to 'Donate Now', :controller => "donations", :action => "new", :cause_id => cause.id %>
+			<%= image_tag cause.cause_image.url(:carousel_image) %>
+			<div class="carousel-caption">
+				<p><%= cause.mission_description %></p>
+			</div>
+		</div>
+		<% end %>
+	</div> <!-- Carousel innards here for each item's image and description -->
 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
+	<a class="carousel-control left" href="#cause-carousel" data-slide="prev">&lsaquo;</a>
+	<a class="carousel-control right" href="#cause-carousel" data-slide="next">&rsaquo;</a>
 </div>

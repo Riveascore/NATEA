@@ -16,18 +16,8 @@
 </p>
 
 <p>
-  <strong>Recurring:</strong>
-  <%= @donation.recurring %>
-</p>
-
-<p>
-  <strong>Recurring period months:</strong>
-  <%= @donation.recurring_period_months %>
-</p>
-
-<p>
-  <strong>Payment method:</strong>
-  <%= @donation.payment_method_id %>
+  <strong>Recurrence:</strong>
+  <%= @donation.donation_recurrence %>
 </p>
 
 <%= link_to 'Edit', edit_donation_path(@donation) %> |

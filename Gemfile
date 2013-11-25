@@ -13,6 +13,12 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'carrierwave'
 gem 'rmagick'
 
+# Using twitter bootstrap because it's awesome of course :)
+gem 'twitter-bootstrap-rails'
+# Need (at least the firt one) for TBR to work.
+gem 'less-rails'
+gem 'therubyracer'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

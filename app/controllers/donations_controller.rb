@@ -15,6 +15,8 @@ class DonationsController < ApplicationController
   # GET /donations/new
   def new
     @donation = Donation.new
+    @recurrenceOptions = Donation::RecurrenceOptions
+    @cause = Cause.find(params[:cause_id])
   end
 
   # GET /donations/1/edit
@@ -25,6 +27,9 @@ class DonationsController < ApplicationController
   # POST /donations.json
   def create
     @donation = Donation.new(donation_params)
+
+    #Don't set from view, set to now!
+    @donation.donation_date = DateTime.now()
 
     respond_to do |format|
       if @donation.save
