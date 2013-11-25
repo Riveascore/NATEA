@@ -1,0 +1,114 @@
+<!-- Donation part -->
+<%= form_for(@donation) do |f| %>
+  <% if @donation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
+
+      <ul>
+      <% @donation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if !@cause.blank? %>
+    <!-- thumbnail and header and make cause_id hidden value -->
+    <%= image_tag @cause.cause_image.url(:thumb) %>
+    <div class="field">
+      <h2><%= @cause.name %></h2>
+    </div>
+  <% else %>
+    <% f.text_field :cause_id, :value => @cause_id %>
+    <div class="field">
+      <%= f.label :cause %><br>
+      <%= f.text_field :cause_id, :value => @cause_id %>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    <%= f.label :donation_amount %><br>
+    <%= f.text_field :donation_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_method_id %><br>
+    <%= f.number_field :payment_method_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :donation_recurrence %><br>
+    <%= f.select :donation_recurrence, options_for_select(@recurrenceOptions) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<!-- Payment Method -->
+<%= form_for(@payment_method) do |f| %>
+  <% if @payment_method.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@payment_method.errors.count, "error") %> prohibited this payment_method from being saved:</h2>
+
+      <ul>
+      <% @payment_method.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name_on_card, :placeholder => "Name on credit card"  %>
+  </div><br/>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<!-- Billing Address -->
+<%= form_for(@billing_address) do |f| %>
+  <% if @billing_address.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@billing_address.errors.count, "error") %> prohibited this billing_address from being saved:</h2>
+
+      <ul>
+      <% @billing_address.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :address1, :placeholder => "Mailing Address Line 1"%>
+  </div>
+  <div class="field">
+    <%= f.text_field :address2, :placeholder => "Mailing Address Line 2"%>
+  </div><br/>
+
+  <div class="field">
+    <%= f.text_field :city, :placeholder => "City"%>
+  </div>
+  <div class="field">
+    <%= f.select :state, options_for_select(@recurrenceOptions), :placeholder => "State" %>
+  </div><br/>
+
+  <div class="field">
+    <%= f.text_field :zip, :placeholder => "Posta/Zip Code"%>
+  </div>
+  <div class="field">
+    <%= f.select :country, options_for_select(@recurrenceOptions), :placeholder => "Country" %>
+  </div><br/>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

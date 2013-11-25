@@ -1,6 +1,7 @@
 class DonationsController < ApplicationController
   before_action :set_donation, only: [:show, :edit, :update, :destroy]
-
+  require 'carmen'
+  include Carmen
   # GET /donations
   # GET /donations.json
   def index
@@ -17,6 +18,20 @@ class DonationsController < ApplicationController
     @donation = Donation.new
     @recurrenceOptions = Donation::RecurrenceOptions
     @cause = Cause.find(params[:cause_id])
+
+    #Create list of countries and states for select fields in view
+    @allCountires = Country.all
+    unitedStates = Country.named('United States')
+    @statesUS = unitedStates.subregions    
+    
+    #Handle years and months for select tag in view
+    @expirationMonths = []
+    (1..12).each {|m| @expirationMonths << Date::MONTHNAMES[m]}  
+    startYear = Time.now.year
+    endYear = startYear + 10    
+    @expirationYears = []
+    (startYear..endYear).each {|y| @expirationYears << y}         
+
   end
 
   # GET /donations/1/edit
@@ -27,6 +42,29 @@ class DonationsController < ApplicationController
   # POST /donations.json
   def create
     @donation = Donation.new(donation_params)
+    month = Date::MONTHNAMES.index(params[:expiration_date_month])
+    expirationDate = Date.new(params[:expiration_date_year].to_i, month, 1)
+    paymentMethodParams = {
+      :expiration_date => expirationDate,
+      :name_on_card => params[:name_on_card],
+      :security_code => params[:security_code]     
+    }
+    paymentMethod = PaymentMethod.create(paymentMethodParams)
+    paymentMethod.save
+
+    billingAddressParams = {
+      :address1 => params[:address1], 
+      :address2 => params[:address2], 
+      :city => params[:city], 
+      :state => params[:state], 
+      :zip => params[:zip]
+    }
+    billingAddress = BillingAddress.new(billingAddressParams)
+    billingAddress.save
+
+    paymentMethod.billing_address_id = billingAddress.id
+
+    @donation.payment_method_id = paymentMethod.id
 
     #Don't set from view, set to now!
     @donation.donation_date = DateTime.now()

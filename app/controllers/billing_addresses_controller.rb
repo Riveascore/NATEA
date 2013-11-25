@@ -1,5 +1,7 @@
 class BillingAddressesController < ApplicationController
   before_action :set_billing_address, only: [:show, :edit, :update, :destroy]
+  require 'carmen'
+  include Carmen
 
   # GET /billing_addresses
   # GET /billing_addresses.json
@@ -15,6 +17,9 @@ class BillingAddressesController < ApplicationController
   # GET /billing_addresses/new
   def new
     @billing_address = BillingAddress.new
+    @allCountires = Country.all
+    unitedStates = Country.named('United States')
+    @statesUS = unitedStates.subregions
   end
 
   # GET /billing_addresses/1/edit

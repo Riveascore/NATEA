@@ -11,38 +11,23 @@
     </div>
   <% end %>
 
+  <%= select_tag :country, options_from_collection_for_select(@statesUS, "name", "name") %>
+
   <div class="field">
-    <%= f.label :donator_id %><br>
-    <%= f.number_field :donator_id %>
+    <%= f.text_field :address1, :placeholder => "Mailing Address Line 1"%>
+    <%= f.text_field :address2, :placeholder => "Mailing Address Line 2"%>
   </div>
+
   <div class="field">
-    <%= f.label :main_contact %><br>
-    <%= f.check_box :main_contact %>
-  </div>
+    <%= f.text_field :city, :placeholder => "City"%>
+    <%= f.select :country, options_for_select(@statesUS.map{ |state| state.name}) %>
+  </div><br/>
+
   <div class="field">
-    <%= f.label :address1 %><br>
-    <%= f.text_field :address1 %>
+    <%= f.text_field :zip, :placeholder => "Posta/Zip Code"%>
+    <%= f.select :country, options_for_select(@allCountires.map{ |state| state.name}) %>
   </div>
-  <div class="field">
-    <%= f.label :address2 %><br>
-    <%= f.text_field :address2 %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :zip %><br>
-    <%= f.number_field :zip %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br>
-    <%= f.text_field :country %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

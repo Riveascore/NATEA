@@ -12,29 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :donator_id %><br>
-    <%= f.number_field :donator_id %>
-  </div>
+    <%= f.text_field :name_on_card, :placeholder => "Name on credit card"  %>
+  </div><br/>
   <div class="field">
-    <%= f.label :type %><br>
-    <%= f.text_field :type %>
-  </div>
+    <%= f.date_select :expiration_date, :start_year => @startYear, :end_year => @endYear, :discard_day => true, :add_month_numbers => true %>
+  </div><br/>
   <div class="field">
-    <%= f.label :routing_number %><br>
-    <%= f.number_field :routing_number %>
-  </div>
-  <div class="field">
-    <%= f.label :expiration_date %><br>
-    <%= f.date_select :expiration_date %>
-  </div>
-  <div class="field">
-    <%= f.label :billing_address_id %><br>
-    <%= f.number_field :billing_address_id %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_number_id %><br>
-    <%= f.number_field :phone_number_id %>
-  </div>
+    <%= f.text_field :security_code, :placeholder => "Security Code" %>
+  </div><br/>
+
   <div class="actions">
     <%= f.submit %>
   </div>

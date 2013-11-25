@@ -13,6 +13,9 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'carrierwave'
 gem 'rmagick'
 
+# For getting all US states, and countries easily for select fields :D
+gem 'carmen'
+
 # Using twitter bootstrap because it's awesome of course :)
 gem 'twitter-bootstrap-rails'
 # Need (at least the firt one) for TBR to work.

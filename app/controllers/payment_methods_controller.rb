@@ -15,6 +15,13 @@ class PaymentMethodsController < ApplicationController
   # GET /payment_methods/new
   def new
     @payment_method = PaymentMethod.new
+    # @expirationMonths = []
+    # (1..12).each {|m| @expirationMonths << Date::MONTHNAMES[m]}
+
+    @startYear = Time.now.year
+    @endYear = @startYear + 10
+    # @expirationYears = []
+    # (currentYear..latestYear).each {|y| @expirationYears << y}   
   end
 
   # GET /payment_methods/1/edit

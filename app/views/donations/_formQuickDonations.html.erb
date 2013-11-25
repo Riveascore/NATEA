@@ -1,0 +1,76 @@
+<%= form_for(@donation) do |f| %>
+  <% if @donation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
+
+      <ul>
+      <% @donation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if !@cause.blank? %>
+    <!-- thumbnail and header and make cause_id hidden value -->
+    <%= image_tag @cause.cause_image.url(:thumb) %>
+    <div class="field">
+      <h2><%= @cause.name %></h2>
+    </div>
+  <% else %>
+    <% f.text_field :cause_id, :value => @cause_id %>
+    <div class="field">
+      <%= f.label :cause %><br>
+      <%= f.text_field :cause_id, :value => @cause_id %>
+    </div>
+  <% end %>
+
+
+  <!-- Step 1 -->
+  <div class="field">
+    <%= f.label :donation_amount %><br>
+    <%= f.text_field :donation_amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :donation_recurrence %><br>
+    <%= f.select :donation_recurrence, options_for_select(@recurrenceOptions) %>
+  </div><br/>
+
+
+  <!-- PaymentMethod -->
+  <div class="field">
+    <%= text_field_tag :name_on_card, nil, :placeholder => "Name on credit card"  %>
+  </div><br/>
+
+  <!-- BillingAddress -->
+  <div class="field">
+    <%= text_field_tag :address1, nil, :placeholder => "Mailing Address Line 1"%>
+    <%= text_field_tag :address2, nil, :placeholder => "Mailing Address Line 2"%>
+  </div>
+
+  <div class="field">
+    <%= text_field_tag :city, nil, :placeholder => "City"%>
+    <%= select_tag :state, options_from_collection_for_select(@statesUS, "name", "name") %>
+  </div><br/>
+
+  <div class="field">
+    <%= text_field_tag :zip, nil, :placeholder => "Posta/Zip Code"%>
+    <%= select_tag :country, options_from_collection_for_select(@allCountires, "name", "name") %>
+  </div><br/>
+
+  <!-- PaymentMethod -->
+  <div class="field">
+    <%= label_tag :security_code %>
+    <%= text_field_tag :security_code, nil, :placeholder => "Security Code" %>
+  </div><br/>
+  <div class="field">
+    <%= label_tag :expiration_date %>
+    <%= select_tag :expiration_date_month, options_for_select(@expirationMonths) %>
+    <%= select_tag :expiration_date_year, options_for_select(@expirationYears) %>
+  </div><br/>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
