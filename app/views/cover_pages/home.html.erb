@@ -1,14 +1,36 @@
-<script type="text/javascript">
-$(document).ready(function () {
-    $('#cause-carousel').carousel({
-        interval: 5000
-    });
+</nav>
+ <div class="navbar navbar-inverse navbar-fixed-top"> <!-- header nav -->
+      <div id="navigationToolbar" class="navbar-inner">
+        <div class="container">
+          <ul class="nav">
 
-    // $('#cause-carousel').carousel('cycle');
-});
-</script> 
+            <li class="active"><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Work</a></li>
+			<li><a href="#">Contact</a></li>
 
+          </ul>
 
+          <span class="brand"></span>
+        </div>
+      </div>
+    </div>
+<!-- http://www.clker.com/cliparts/2/P/o/V/8/O/landscape.svg -->
+<%= image_tag("grass.png", :id => "grassFooter") %>
+
+<!-- http://adaptstudio.ca/blog/uploaded_images/turbinesilhouette-718697.png -->
+<div class="turbineObject">
+	<%= image_tag("turbineBlades.png", :id => "turbineBlades1", :class => "turbine turbineBlades", :size => '156x320') %>
+	<%= image_tag("turbineBase.png", :id => "turbineBase", :class => "turbine", :size => '156x320') %>
+</div>
+<div class="turbineObject">
+	<%= image_tag("turbineBlades.png", :id => "turbineBlades2", :class => "turbine turbineBlades", :size => '98x200') %>
+	<%= image_tag("turbineBase.png", :id => "turbineBase", :class => "turbine", :size => '98x200') %>
+</div>
+<div class="turbineObject">
+	<%= image_tag("turbineBlades.png", :id => "turbineBlades3", :class => "turbine turbineBlades", :size => '78x160') %>
+	<%= image_tag("turbineBase.png", :id => "turbineBase", :class => "turbine", :size => '78x160') %>
+</div>
 
 <div id="cause-carousel" class="carousel slide" data-ride="carousel">
 	<!-- 
@@ -43,3 +65,73 @@ $(document).ready(function () {
 	<a class="carousel-control left" href="#cause-carousel" data-slide="prev">&lsaquo;</a>
 	<a class="carousel-control right" href="#cause-carousel" data-slide="next">&rsaquo;</a>
 </div>
+
+<style type="text/css">
+	body {
+		background-color: #01d6c9;
+	}
+	#grassFooter {
+		position: absolute;
+		margin-top: 75px;
+	}
+	.turbine, .turbineObject {
+		position: absolute;
+	}
+	/*-webkit-transform-origin: 445px 400px;*/
+	#turbineBlades1 {
+		-webkit-transform-origin: 89px 80px;
+	}
+	#turbineBlades2 {
+		-webkit-transform-origin: 56px 50px;
+	}	
+	#turbineBlades3 {
+		-webkit-transform-origin: 44px 40px;
+	}
+	@-webkit-keyframes rotate {
+	  from {
+	    -webkit-transform: rotate(0deg);
+	  }
+	  to { 
+	    -webkit-transform: rotate(360deg);
+	  }
+	}
+	.turbineBlades {
+		-webkit-font-smoothing: antialiased;
+		-webkit-animation-name: rotate; 
+		-webkit-animation-duration: 3s; 
+		-webkit-animation-iteration-count: infinite;
+		-webkit-ANIMATION-timing-function: linear;
+	}	
+
+	.myHeaderToolbar {
+		border-bottom: none;
+		background-color: black;
+	}
+
+	#navigationToolbar {
+		background-color: black;
+	}
+</style>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#cause-carousel').carousel({
+        interval: 5000
+    });
+
+
+    // $('#cause-carousel').carousel('cycle');
+});
+$("#grassFooter").height(screen.availHeight);
+
+turbineObjects = $(".turbineObject");
+$.each(turbineObjects, function() {
+	var marginTop = screen.availHeight - $(this).find(".turbineBlades").width() - 250;
+	// var marginLeft = screen.availWidth - $(this).find(".turbineBlades").height();
+
+	$(this).css({
+		"margin-top": marginTop
+	});
+});
+// $("#grassFooter").width(screen.availWidth).height(screen.availHeight);
+</script> 
